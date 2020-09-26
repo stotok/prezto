@@ -13,11 +13,18 @@ fi
 # Customize to your needs...
 # eval $(dircolors ~/.dircolors)
 
-[[ -a ~/project/kiss/shell-utils/zsh/.zsh_aliases ]]  && source ~/project/kiss/shell-utils/zsh/.zsh_aliases
-[[ -a ~/project/kiss/shell-utils/zsh/.zsh_path ]]     && source ~/project/kiss/shell-utils/zsh/.zsh_path
-[[ -a ~/project/kiss/shell-utils/zsh/.zsh_etc ]]      && source ~/project/kiss/shell-utils/zsh/.zsh_etc
-[[ -a ~/.fzf.zsh ]]                                   && source ~/.fzf.zsh
-[[ -a ~/project/kiss/shell-utils/zsh/.zsh_fzf ]]      && source ~/project/kiss/shell-utils/zsh/.zsh_fzf
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+# case insensitive globbing
+setopt NO_CASE_GLOB
+
+[[ -a ~/project/kiss/shell-utils/zsh/.zsh_aliases ]]     && source ~/project/kiss/shell-utils/zsh/.zsh_aliases
+[[ -a ~/project/kiss/shell-utils/zsh/.zsh_path ]]        && source ~/project/kiss/shell-utils/zsh/.zsh_path
+[[ -a ~/project/kiss/shell-utils/zsh/.zsh_etc ]]         && source ~/project/kiss/shell-utils/zsh/.zsh_etc
+[[ -a ~/.fzf.zsh ]]                                      && source ~/.fzf.zsh
+[[ -a ~/project/kiss/shell-utils/zsh/.zsh_fzf ]]         && source ~/project/kiss/shell-utils/zsh/.zsh_fzf
 [[ -a ~/project/kiss/shell-utils/zsh/.zsh_$(hostname) ]] && source ~/project/kiss/shell-utils/zsh/.zsh_$(hostname)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
