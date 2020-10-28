@@ -29,3 +29,18 @@ setopt NO_CASE_GLOB
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Execute code only if STDERR is bound to a TTY.
+if [[ -o INTERACTIVE && -t 2 ]]; then
+  # Print a random, hopefully interesting, adage.
+  if (( $+commands[fortune] )); then
+    FORTUNEFILE="${HOME}/dotspacemacs/mycontribs/ttk-quotes/fortunes"
+    if [[ -a ${FORTUNEFILE} ]]; then
+      if [[ ! -a ${FORTUNEFILE}.dat ]]; then
+        strfile ${FORTUNEFILE} >/dev/null
+      fi
+      #
+      fortune ${FORTUNEFILE}
+    fi
+  fi
+fi >&2
